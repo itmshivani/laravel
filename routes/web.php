@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 //Route::get('itm','array1controller@usingarray');
 //Route::get('shivani','array1controller@usingarray');
-//Route::get('shivani','conditioncontroller@aif');
+Route::get('shivani','conditioncontroller@aif');
 //Route::get('shivani','conditioncontroller@aelse');
 //Route::get('shivani','conditioncontroller@aelseif');
 //Route::get('shivani','conditioncontroller@aisset');
@@ -49,3 +49,5 @@ Route::get('/', function () {
 //Route::resource("movie","moviecontroller");
 
 Route::resource("clip","clipcontroller");
+//Route::resource("tenfeild","tenfeildcontroller");
+//Route::resource("fiftheen","fiftheencontroller");

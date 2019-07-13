@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\clip;
-use Validator;
+use\App\tenfeild;
+use\Validator;
 
-class clipcontroller extends Controller
+class tenfeildcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class clipcontroller extends Controller
      */
     public function index()
     {
-        $students=clip::orderBy("id","desc")->get();
-        print_r($students);
-       // return view('student.index',compact("students"));
+        //
     }
 
     /**
@@ -27,7 +25,7 @@ class clipcontroller extends Controller
      */
     public function create()
     {
-        return view("movie.clip");
+        return view("movie.tenfeild");
     }
 
     /**
@@ -36,46 +34,55 @@ class clipcontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-   
-
     public function store(Request $request)
     {
-         $data=validator::make($request->all(),[
+        $data=validator::make($request->all(),[
               
               "Username"=>"required",
               "Password"=>"required",
               "Email"=>"required",
               "Contact"=>"required",
-              "College"=>"required"
+              "College"=>"required",
+              "Degree"=>"required",
+              "Address"=>"required",
+              "School"=>"required",
+              "Hobby"=>"required",
+              "City"=>"required"
               
         ],[
                "Username.required"=>"username is needed",
                "Password.required"=>"password is needed",
                "Email.required"=>"email should be needed",
                "Contact.required"=>"contact should be needed",
-               "College.required"=>"college should be needed"
+               "College.required"=>"college should be needed",
+               "Degree.required"=>"degree should be needed",
+               "Address.required"=>"address should be needed",
+               "School.required"=>"school should be needed",
+               "Hobby.required"=>"hobby should be needed",
+               "City.required"=>"city should be needed",
                
 
 
 
         ])->validate();
 
-        $obj=new clip;
+        $obj=new tenfeild;
         $obj->Username =$request->Username;
         $obj->Password=$request->Password;
         $obj->Email=$request->Email;
         $obj->Contact=$request->Contact;
         $obj->College=$request->College;
+        $obj->Degree=$request->Degree;
+        $obj->Address=$request->Address;
+        $obj->School=$request->School;
+        $obj->Hobby=$request->Hobby;
+        $obj->City=$request->City;
         
         $is_saved=$obj->save();
-        //dd($obj)
-        if($is_saved){
-            session()->flash("Student Message","student has been inserted");
-            return view("student.index",compact('$obj'));
-        }
-        
-    
+        dd($obj);
     }
+    
+
     /**
      * Display the specified resource.
      *
